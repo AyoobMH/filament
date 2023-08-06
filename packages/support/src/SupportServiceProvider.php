@@ -43,27 +43,27 @@ class SupportServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
-        $this->app->scoped(
+        $this->app->bind(
             AssetManager::class,
             fn () => new AssetManager(),
         );
 
-        $this->app->scoped(
+        $this->app->bind(
             ColorManager::class,
             fn () => new ColorManager(),
         );
 
-        $this->app->scoped(
+        $this->app->bind(
             IconManager::class,
             fn () => new IconManager(),
         );
 
-        $this->app->scoped(
+        $this->app->bind(
             ViewManager::class,
             fn () => new ViewManager(),
         );
 
-        $this->app->scoped(
+        $this->app->bind(
             HtmlSanitizerInterface::class,
             fn (): HtmlSanitizer => new HtmlSanitizer(
                 (new HtmlSanitizerConfig())
